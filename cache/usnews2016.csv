@@ -1,0 +1,196 @@
+,University Name,US News Ranking,UNITID
+0,Princeton University,1.0,186131
+1,Massachusetts Institute of Technology,7.0,166683
+2,Harvard University,2.0,166027
+3,Stanford University,4.0,243744
+4,Yale University,3.0,130794
+5,University of Chicago,4.0,144050
+6,Johns Hopkins University,10.0,162928
+7,University of Pennsylvania,8.0,215062
+8,California Institute of Technology,10.0,110404
+9,Duke University,8.0,198419
+10,Northwestern University,12.0,147767
+11,Dartmouth College,12.0,182670
+12,Brown University,14.0,217156
+13,Vanderbilt University,15.0,221999
+14,Rice University,18.0,227757
+15,Washington University in St. Louis,15.0,179867
+16,Cornell University,15.0,190415
+17,Columbia University,4.0,190150
+18,University of Notre Dame,18.0,152080
+19,University of California-Berkeley,20.0,110635
+20,University of California-Los Angeles,23.0,110662
+21,Carnegie Mellon University,23.0,211440
+22,Emory University,21.0,139658
+23,Georgetown University,21.0,131496
+24,New York University,32.0,193900
+25,University of Michigan-Ann Arbor,29.0,170976
+26,University of Southern California,23.0,123961
+27,University of Virginia,26.0,234076
+28,University of Florida,47.0,134130
+29,University of North Carolina-Chapel Hill,30.0,199120
+30,Wake Forest University,27.0,199847
+31,Tufts University,27.0,168148
+32,University of California-Santa Barbara,37.0,110705
+33,University of California-Irvine,39.0,110653
+34,University of California-San Diego,39.0,110680
+35,Boston College,30.0,164924
+36,University of Rochester,33.0,195030
+37,University of Texas-Austin,52.0,228778
+38,University of California-Davis,41.0,110644
+39,University of Wisconsin-Madison,41.0,240444
+40,Boston University,41.0,164988
+41,College of William and Mary,34.0,231624
+42,University of Illinois-Urbana-Champaign,41.0,145637
+43,Brandeis University,34.0,165015
+44,Case Western Reserve University,37.0,201645
+45,Georgia Institute of Technology,36.0,139755
+46,Northeastern University,47.0,167358
+47,Tulane University,41.0,160755
+48,Ohio State University-Columbus,52.0,204796
+49,University of Georgia,61.0,139959
+50,Lehigh University,47.0,213543
+51,Purdue University,61.0,243780
+52,Rensselaer Polytechnic Institute,41.0,194824
+53,Villanova University,,216597
+54,Florida State University,96.0,134097
+55,Pepperdine University,52.0,121150
+56,Rutgers University-New Brunswick,72.0,186380
+57,Santa Clara University,,122931
+58,University of Maryland,57.0,163286
+59,University of Miami,51.0,135726
+60,University of Washington,52.0,236948
+61,George Washington University,57.0,131469
+62,Syracuse University,61.0,196413
+63,University of Minnesota,69.0,174066
+64,University of Pittsburg,66.0,215293
+65,Virginia Polytechnic Institute and State University,70.0,233921
+66,Texas A&M University-College Station,70.0,228723
+67,University of Connecticut,57.0,129020
+68,University of Massachusetts-Amherst,75.0,166629
+69,Worcester Polytechnic Institute,57.0,168421
+70,Yeshiva University,52.0,197708
+71,American University,72.0,131159
+72,Fordham University,66.0,191241
+73,Indiana University-Bloomington,75.0,151351
+74,North Carolina State University,89.0,199193
+75,Southern Methodist University,61.0,228246
+76,Baylor University,72.0,223232
+77,Clemson University,61.0,217882
+78,Loyola Marymount University,,117946
+79,Michigan State University,75.0,171100
+80,Pennsylvania State University-University Park,47.0,214777
+81,Stony Brook University,89.0,196097
+82,Binghamton University,89.0,196079
+83,Gonzaga University,,235316
+84,Marquette University,86.0,239105
+85,Stevens Institute of Technology,75.0,186867
+86,University of California-Santa Cruz,82.0,110714
+87,University of Iowa,82.0,153658
+88,Brigham Young University,66.0,230038
+89,Colorado School of Mines,75.0,126775
+90,Elon Uuniversity,,198516
+91,Howard University,135.0,131520
+92,Texas Christian University,82.0,228875
+93,University of Buffalo,99.0,196088
+94,University of California-Riverside,121.0,110671
+95,University of Delaware,75.0,130943
+96,Auburn University,102.0,100858
+97,Clark University,75.0,165334
+98,New Jersey Institute of Technology,140.0,185828
+99,University of California-Merced,,445188
+100,University of Colorado-Boulder,89.0,126614
+101,University of Illinois-Chicago,129.0,145600
+102,University of San Diego,89.0,122436
+103,University of South Florida,156.0,137351
+104,Drexel University,99.0,212054
+105,Miami University,82.0,204024
+106,Rochester Instittue of Technology,107.0,195003
+107,Saint Louis University,96.0,179159
+108,SUNY College of Environmental Science and Forestry,89.0,196103
+109,University of Arizona,121.0,104179
+110,University of Denver,86.0,127060
+111,University of Oregon,103.0,209551
+112,University of San Francisco,108.0,122612
+113,University of Utah,115.0,230764
+114,Creighton University,,181002
+115,Fairfield University,,129242
+116,Loyola University Chicago,99.0,146719
+117,Rutgers University-Newark,140.0,186399
+118,University of Tennessee,103.0,221759
+119,University of South Carolina,108.0,218663
+120,Arizona State University-Tempe,129.0,104151
+121,Chapman University,,111948
+122,Temple University,115.0,216339
+123,University of Kansas,115.0,155317
+124,University of Missouri,103.0,178396
+125,University of Vermont,89.0,231174
+126,Clarkson University,115.0,190044
+127,Gallaudet University,,131450
+128,Illinois Institute of Technology,108.0,145725
+129,Iowa State University,108.0,153603
+130,Rutgers University-Camden,,186371
+131,Samford University,,102049
+132,New School,127.0,193654
+133,Thomas Jefferson University,,216366
+134,University of Dayton,108.0,202480
+135,University of Oklahoma,108.0,207500
+136,California State University-Long Beach,,110583
+137,DePaul University,123.0,144740
+138,Drake University,,153269
+139,George Mason University,135.0,232186
+140,Seattle University,,236595
+141,Seton Hall University,123.0,186584
+142,University of Alabama,96.0,100751
+143,University of Alabama-Birmingham,149.0,100663
+144,University of Central Florida,,132903
+145,University of Kentucky,129.0,157085
+146,University of Maryland-Baltimore County,156.0,163268
+147,University of New Hampshire,103.0,183044
+148,University of St. Thomas,115.0,174914
+149,University of Tulsa,86.0,207971
+150,Colorado State University,127.0,126818
+151,CUNY-City College,,190567
+152,Duquesne University,115.0,212106
+153,Florida International University ,,133951
+154,James Madison University ,,232423
+155,Michigan Technological University,123.0,171128
+156,Oregon State University ,135.0,440828
+157,San Diego State University,149.0,122409
+158,Simmons University,,167783
+159,University of Texas-Dallas,140.0,228787
+160,University of Cincinnati,140.0,201885
+161,University of La Verne,,117140
+162,University of Mississippi,140.0,176017
+163,University of Nebraska-Lincoln,103.0,181464
+164,University of the Pacific,108.0,120883
+165,Adelphi University ,153.0,188429
+166,Biola University ,,110097
+167,Catholic University of America,123.0,131283
+168,Florida Institute of Technology ,,443252
+169,Hofstra University ,135.0,191649
+170,Illinois State University ,149.0,145813
+171,Immaculata University ,,213011
+172,Kansas State University ,146.0,155399
+173,Louisiana State University and Agricultural & Mechanical College ,129.0,159391
+174,Maryville University of Saint Louis ,,178059
+175,Mercer University ,,140447
+176,Mississippi State University ,,176080
+177,Missouri University of Science and Technology ,146.0,178411
+178,Ohio University,135.0,204857
+179,Oklahoma State University-Main Campus ,149.0,207388
+180,Quinnipiac University ,,130226
+181,Saint John Fisher College ,146.0,195720
+182,Seattle Pacific University ,,236577
+183,St John's University-New York ,153.0,195809
+184,SUNY at Albany ,129.0,196060
+185,Texas Tech University ,,229115
+186,Union University ,,221971
+187,University of Arkansas,129.0,106397
+188,University of Hawaii at Manoa ,,141574
+189,University of Massachusetts-Lowell ,156.0,166513
+190,University of Rhode Island ,,217484
+191,University of St. Joseph ,,130314
+192,Valparaiso University ,,152600
+193,Virginia Commonwealth University ,156.0,234030
+194,Washington State University,140.0,236939
