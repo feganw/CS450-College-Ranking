@@ -7,6 +7,7 @@ import numpy as np
 import os
 from pandas import DataFrame
 import pandas as pd
+import plotly as pt
 from plotly import data
 import plotly.express as px
 import plotly.graph_objects as go
@@ -144,7 +145,7 @@ def dashboard():
 
     # Year selection:
     st.sidebar.subheader("Select which year's data you would like to see:")
-    selYear = st.sidebar.slider("Year", min_value=yearStart, max_value=yearEnd, step=1)
+    selYear = st.sidebar.number_input("Year (" + str(yearStart) + "-" + str(yearEnd) + ")", min_value=yearStart, max_value=yearEnd, value=yearEnd, step=1)
 
     USNewsDF = dframes["usnews" + str(selYear)]
 
@@ -173,7 +174,7 @@ def dashboard():
     df = getTopNDF(selN, selParamColName, selYear, selMaxDeg, hideOutsiders)
 
     # Create a scatter plot.
-    fig = px.scatter(df, y=selParamColName, x="INSTNM")
+    fig = px.scatter(data_frame=df, y=selParamColName, x="INSTNM")
     fig.update_traces(marker_size=10)
     st.plotly_chart(fig, use_container_width=True)
 
@@ -196,10 +197,11 @@ def dashboard():
 
     # We want a dumbbell plot to show the disparity between our ranking and US News' ranking.
     dumbbell_schools = ourTableDF["University Name"]
-    dumbbell_data = {"line_x": [], "line_y": [], "Our Ranking": [], "US News Ranking": [], "colors": [], "Rank": [], "schools": []}
+    dumbbell_data = {"line_x": [], "line_y": [], "Our Ranking": [], "US News Ranking": [], "schools": []}
     for school in dumbbell_schools:
         dumbbell_data["Our Ranking"].extend(ourTableDF.loc[ourTableDF["University Name"] == school]["Our Ranking"])
         dumbbell_data["US News Ranking"].extend(ourTableDF.loc[ourTableDF["University Name"] == school]["US News Ranking"])
+        dumbbell_data["schools"] += [school]
         dumbbell_data["line_x"].extend([
             ourTableDF.query("`University Name` == \"" + str(school) + "\"")["Our Ranking"].to_list()[0],
             ourTableDF.query("`University Name` == \"" + str(school) + "\"")["US News Ranking"].to_list()[0],
@@ -207,22 +209,24 @@ def dashboard():
         ])
         dumbbell_data["line_y"].extend([school, school, None])
 
+    print(dumbbell_data)
+
     dumbbell_fig = go.Figure(
-        [
+        data=[
             go.Scatter(
                 x=dumbbell_data["line_x"],
                 y=dumbbell_data["line_y"],
                 mode="lines",
                 showlegend=False,
-                marker=dict(color="grey")
+                marker=dict(color="black")
             ),
             go.Scatter(
-                x=dumbbell_data["Our Ranking"],
+                x=dumbbell_data["Our Ranking"], # how do we know the correct data is here?
                 y=dumbbell_data["schools"],
                 mode="markers",
                 name="Our Ranking",
                 marker=dict(
-                    color="green",
+                    color="blue",
                     size=10
                 )
             ),
@@ -232,7 +236,7 @@ def dashboard():
                 mode="markers",
                 name="US News Ranking",
                 marker=dict(
-                    color="blue",
+                    color="goldenrod",
                     size=10
                 )
             )            
@@ -257,7 +261,6 @@ def dashboard():
     st.markdown(hide_table_row_index, unsafe_allow_html=True)
 
     st.table(ourTableDF)
-
 
 def main():
     print("Let's do some data science!")
