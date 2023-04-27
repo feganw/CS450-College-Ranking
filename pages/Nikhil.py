@@ -9,7 +9,7 @@ import matplotlib as plt
 # Filesystem variables:
 scardpath = "./Clean College Scorecard Data/"
 usnewspath = "./usnews/"
-cachepath = "./cache/"
+cachepath = "./nikhilcache/"
 
 # Data and where to find it:
 datastore = {
@@ -146,7 +146,7 @@ while year <= yearEnd:
     if not os.path.exists(cachefile):
         # Data is not cached, build our custom stripped tables from scratch.
         df = pd.read_csv(filepath_or_buffer=datastore["scard"][year], usecols=usecolsArr)
-        df = stripbad(df)
+        df = stripbadNikhil(usecolsArr, df)
         df.to_csv(cachefile)
         print("Loaded " + datastore["scard"][year])
     # The data is cached, or we just created it. Load it now.
