@@ -138,7 +138,7 @@ if not os.path.isdir(cachepath):
     os.mkdir(cachepath)
 
 # Load College Scorecard data for each year.
-usecolsArr = ["UNITID", "INSTNM", "NPT42_PUB", "SAT_AVG", "ADM_RATE", "COSTT4_A", "PFTFAC", "TRANS_4"]
+usecolsArr = ["UNITID", "INSTNM", "NPT42_PUB", "SAT_AVG", "ADM_RATE", "COSTT4_A", "PFTFAC", "TRANS_4", "ACTCM25", "RET_FT4", "PCTFLOAN"]
 year = yearStart
 while year <= yearEnd:
     cachefile = cachepath + str(year) + ".csv"
