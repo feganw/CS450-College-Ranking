@@ -184,7 +184,8 @@ USNewsDF = dframes["usnews" + str(selYear)]
 k = st.sidebar.slider("K Value for Top-K Distinction", 10, 100, 10, 1)
 #usecolsArr = ["UNITID","MN_EARN_WNE_INC1_P10","MN_EARN_WNE_INC2_P10","MN_EARN_WNE_INC3_P10","FEMALE_COMP_ORIG_YR3_RT","FEMALE_COMP_4YR_TRANS_YR3_RT","FEMALE_COMP_2YR_TRANS_YR3_RT","MALE_COMP_ORIG_YR3_RT","MALE_COMP_4YR_TRANS_YR3_RT","MALE_COMP_2YR_TRANS_YR3_RT","LO_INC_DEBT_MDN","MD_INC_DEBT_MDN","HI_INC_DEBT_MDN","COMPL_RPY_7YR_N","NONCOM_RPY_7YR_N","FEMALE_RPY_7YR_N","MALE_RPY_7YR_N","LO_INC_RPY_7YR_N","MD_INC_RPY_7YR_N","HI_INC_RPY_7YR_N","PELL_RPY_7YR_N","NOPELL_RPY_7YR_N","UGDS","NPT41_PUB","NPT42_PUB","NPT43_PUB","NPT44_PUB","NPT45_PUB","NPT41_PRIV","NPT42_PRIV","NPT43_PRIV","NPT44_PRIV","NPT45_PRIV","PCT_WHITE","PCT_BLACK","PCT_ASIAN","PCT_HISPANIC","PCT_BA","PCT_GRAD_PROF","PCT_BORN_US","SAT_AVG","ACTCM25","INSTNM"]
 #usecolsArr = ["UNITID", "INSTNM", "NPT42_PUB", "SAT_AVG", "ADM_RATE", "COSTT4_A", "PFTFAC", "TRANS_4"]
-df = pd.read_csv(datastore["scard"][selYear], usecols = usecolsArr)
+#df = pd.read_csv(datastore["scard"][selYear], usecols = usecolsArr)
+df = pd.read_csv(cachepath + str(selYear) + ".csv")
 #df = dframes[selYear]
 #df["Combination Count"] = np.random.rand(len(df.index),1)
 df.insert(2,"Combination Count",np.zeros(len(df.index)))
