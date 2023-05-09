@@ -53,16 +53,18 @@ def stripbadNikhil(colArr, df: DataFrame) -> DataFrame:
 #in an unbiased attribute that can be used to rank the universities on the amount of attributes
 #that they fall in the top-k with. 
 
-def calcCombinationCount(df,k,natt):
-    numAttributes = natt
+def calcCombinationCount(df,k,warr):
+    weights = warr
     result = df.copy()
+    wi = 0
     for feature_name in df.columns:
       if(feature_name not in ["UNITID","INSTNM","Combination Count"]):
         result = result.sort_values(by=[feature_name], ascending=False)
         i = 0
         for row in result.head(k).itertuples():
-          result.at[row.Index,"Combination Count"] += 1/numAttributes
+          result.at[row.Index,"Combination Count"] += 1 * weights[wi]
           i = i + 1
+        wi = wi + 1
     return result
 
 
@@ -146,7 +148,7 @@ while year <= yearEnd:
     if not os.path.exists(cachefile):
         # Data is not cached, build our custom stripped tables from scratch.
         df = pd.read_csv(filepath_or_buffer=datastore["scard"][year], usecols=usecolsArr)
-        df = stripbadNikhil(usecolsArr, df)
+        df = stripbad(df)
         df.to_csv(cachefile)
         print("Loaded " + datastore["scard"][year])
     # The data is cached, or we just created it. Load it now.
@@ -182,17 +184,27 @@ selYear = st.sidebar.number_input("Year (" + str(yearStart) + "-" + str(yearEnd)
 
 USNewsDF = dframes["usnews" + str(selYear)]
 k = st.sidebar.slider("K Value for Top-K Distinction", 10, 100, 10, 1)
+w1 = st.sidebar.slider("Tuition Weight", 0.1, 10.0, 1.0, 0.1)
+w2 = st.sidebar.slider("SAT Weight", 0.1, 10.0, 1.0, 0.1)
+w3 = st.sidebar.slider("Admission Rate Weight", 0.1, 10.0, 1.0, 0.1)
+w4 = st.sidebar.slider("Total Cost Weight", 0.1, 10.0, 1.0, 0.1)
+w5 = st.sidebar.slider("Faculty Ratio Weight", 0.1, 10.0, 1.0, 0.1)
+w6 = st.sidebar.slider("Transfer Percentage Weight", 0.1, 10.0, 1.0, 0.1)
+w7 = st.sidebar.slider("ACT Weight", 0.1, 10.0, 1.0, 0.1)
+w8 = st.sidebar.slider("FT4 Return Weight", 0.1, 10.0, 1.0, 0.1)
+w9 = st.sidebar.slider("Percent Loan Weight", 0.1, 10.0, 1.0, 0.1)
+weightarr = [w1,w2,w3,w4,w5,w6,w7,w8,w9]
 #usecolsArr = ["UNITID","MN_EARN_WNE_INC1_P10","MN_EARN_WNE_INC2_P10","MN_EARN_WNE_INC3_P10","FEMALE_COMP_ORIG_YR3_RT","FEMALE_COMP_4YR_TRANS_YR3_RT","FEMALE_COMP_2YR_TRANS_YR3_RT","MALE_COMP_ORIG_YR3_RT","MALE_COMP_4YR_TRANS_YR3_RT","MALE_COMP_2YR_TRANS_YR3_RT","LO_INC_DEBT_MDN","MD_INC_DEBT_MDN","HI_INC_DEBT_MDN","COMPL_RPY_7YR_N","NONCOM_RPY_7YR_N","FEMALE_RPY_7YR_N","MALE_RPY_7YR_N","LO_INC_RPY_7YR_N","MD_INC_RPY_7YR_N","HI_INC_RPY_7YR_N","PELL_RPY_7YR_N","NOPELL_RPY_7YR_N","UGDS","NPT41_PUB","NPT42_PUB","NPT43_PUB","NPT44_PUB","NPT45_PUB","NPT41_PRIV","NPT42_PRIV","NPT43_PRIV","NPT44_PRIV","NPT45_PRIV","PCT_WHITE","PCT_BLACK","PCT_ASIAN","PCT_HISPANIC","PCT_BA","PCT_GRAD_PROF","PCT_BORN_US","SAT_AVG","ACTCM25","INSTNM"]
 #usecolsArr = ["UNITID", "INSTNM", "NPT42_PUB", "SAT_AVG", "ADM_RATE", "COSTT4_A", "PFTFAC", "TRANS_4"]
-#df = pd.read_csv(datastore["scard"][selYear], usecols = usecolsArr)
-df = pd.read_csv(cachepath + str(selYear) + ".csv")
+df = pd.read_csv(datastore["scard"][selYear], usecols = usecolsArr)
 #df = dframes[selYear]
 #df["Combination Count"] = np.random.rand(len(df.index),1)
 df.insert(2,"Combination Count",np.zeros(len(df.index)))
 df = stripbadNikhil(usecolsArr,df)
-df = calcCombinationCount(df,k,len(usecolsArr)-2)
+df = calcCombinationCount(df,k,weightarr)
 df = normalize(df)
 sorted_df = df.sort_values(by=['Combination Count'], ascending=False)
+sorted_df2 = sorted_df.rename({'UNITID': 'Unique ID', 'INSTM': 'University Name', 'NPT42_PUB': 'Average Tution', 'SAT_AVG': 'Average SAT Score', 'ACTCM25': 'Average ACT Score', 'RET_FT4': '4 Year Return', 'ADM_RATE': 'Admission Rate', 'COSTT4_A': 'Average 4-Year Cost', 'PFTFAC': 'Faculty-Student Ratio', 'TRANS_4': 'Transfer Rate'}, axis=1)
 #sorted_df.rename(columns={"UNITID":"Unique ID", "INSTNM":"University Name", "NPT42_PUB":"Avg. Tuition", "SAT_AVG":"Avg. SAT Score", "ADM_RATE": "Admission Rate", "COSTT4_A": "Average 4-Year Cost", "PFTFAC": "Faculty-Student Ratio", "TRANS_4": "Transfer Rate"})
-display_Nikhil = sorted_df.head(100).style.pipe(make_pretty)
-st.dataframe(display_Nikhil, height=850)
+display_Nikhil = sorted_df2.head(100).style.pipe(make_pretty)
+st.dataframe(display_Nikhil)
